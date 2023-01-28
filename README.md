@@ -54,3 +54,66 @@ schema validation
 ![image](https://user-images.githubusercontent.com/36766101/215257971-88cb2e37-7822-4988-9f96-4cac2415df36.png)
 
 
+
+
+# Choose the Correct Data Model for MongoDB Application
+
+Load Data Files into a New Collection
+Check the contents of the current directory for the two CSV files needed for this lab:
+
+ls
+View the checkout.csv file to see more information on books being checked out:
+
+cat checkout.CSV
+View the inventory.csv file to see more information on the inventory of books:
+
+cat inventory.CSV
+Load the inventory.csv file into a new inventory collection in the library database:
+
+mongoimport --db library --collection inventory --type csv --headerline --ignoreBlanks --file inventory.CSV
+Load the checkout.csv file into a new checkout collection in the library database:
+
+mongoimport --db library --collection checkout --type csv --headerline --ignoreBlanks --file checkout.CSV
+Once the files are loaded, connect to our MongoDB instance:
+
+mongosh library 
+View the data files:
+
+db.inventory.find()
+db.checkout.find()
+Normalize Publisher Information
+To normalize the publisher information to a new collection, create a new publishers collection with the publisher name and contact using this aggregate function:
+
+ db.inventory.aggregate([ { $project: { publisher_name: 1, publisher_contact: 1}}, {$out: 'publishers'} ]) 
+View the new publishers collection:
+
+db.publishers.find()
+Remove the publisher contact information from the inventory collection:
+
+db.inventory.updateMany( {}, {$unset: { publisher_contact: "" } } )
+View the inventory collection to make sure the publisher contact information has been moved to a new collection:
+
+db.inventory.find()
+Denormalize the Checkout Information
+To denormalize or embed the checkout information into our inventory collection, use the following aggregate function:
+
+db.inventory.aggregate([
+{
+  $lookup: {
+     from: "checkout",
+     localField: "_id",    // field in the inventory collection
+     foreignField: "book_id",  // field in the checkout collection
+     as: "fromItems"
+  }
+},
+{
+  $replaceRoot: { newRoot: { $mergeObjects: [ { $arrayElemAt: [ "$fromItems", 0 ] }, "$$ROOT" ] } }
+},
+{ $set: { checkout: [ {by: "$name", date: "$date" } ] } },
+{ $project: { fromItems: 0, name: 0, date: 0, book_id: 0 } },
+{ $out: 'inventory' }
+])   
+
+View the inventory information to make sure the checkout information is included in the collection:
+
+db.inventory.find()
