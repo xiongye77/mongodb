@@ -42,7 +42,14 @@ Sharding,It is the process of storing data records across multiple machines and 
 
 
 
+Backup/Restoure use mongodump and mongorestore
 
+
+mongodump --host sample-cluster.node.us-east-1.docdb.amazonaws.com --port=27017 --username <username> --password <password> --out=<path where you want the backup>
+
+mongorestore --host sample-cluster.node.us-east-1.docdb.amazonaws.com --port=27017 --username <username> --password <insertYourPassword> --drop <Restore path of DB>
+  
+  
 
 
 Create a New Collection and Load Data into It
