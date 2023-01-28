@@ -1,4 +1,48 @@
-# mongodb
+
+# Mongo DB
+Mongo DB is a document-oriented database. It is an open source product which is developed and supported by a company named 10gen
+
+
+
+The primary purpose of building MongoDB is:-
+
+Scalability
+
+Performance
+
+High Availability
+
+Scaling from single server deployments to large, complex multi-site architectures
+
+
+
+
+Understanding basic terminology in mongo. MongoDB works on concept of collection and document.
+
+Database is a physical container for collections. Each database gets its own set of files on the file system. A single MongoDB server typically has multiple databases.
+
+
+Collection is a group of MongoDB documents. It is the equivalent of an RDBMS table. A collection exists within a single database. Collections do not enforce a schema. Documents within a collection can have different fields. Typically, all documents in a collection are of similar or related purpose.
+
+
+Document is a set of key-value pairs, have dynamic schema which means that documents in the same collection do not need to have the same set of fields or structure, and common fields in a collection’s documents may hold different types of data.
+
+
+Indexes exist primarily to improve the performance of MongoDB queries and other operations. Choosing the best set of indexes is perhaps the most important single thing you can do to improve the performance of your MongoDB applications.
+
+
+
+Some other concepts one be dealing frquently in Mongo include:-
+
+Aggregation,These are operations that process data records and return computed results. Aggregation operations group values from multiple documents together, and can perform a variety of operations on the grouped data to return a single result.
+
+Replication,Replica set is a group of two or more nodes (generally minimum 3 nodes are required). In a replica set, one node is primary node and remaining nodes are secondary. All data replicates from primary to secondary node. At the time of automatic fail-over or maintenance, election establishes for primary and a new primary node is elected. After the recovery of failed node, it again join the replica set and works as a secondary node.
+
+Sharding,It is the process of storing data records across multiple machines and it is MongoDB’s approach to meeting the demands of data growth. Sharding solves the problem with horizontal scaling. With sharding, you add more machines to support data growth and the demands of read and write operations. 
+
+
+
+
 
 
 Create a New Collection and Load Data into It
