@@ -1,6 +1,8 @@
 
 # Mongo DB
-Mongo DB is a document-oriented database. It is an open source product which is developed and supported by a company named 10gen
+Mongo DB is a high-performance document-oriented database that is powered by a NoSQL structure. It makes use of collections (tables) each having multiple documents (records) & allows the user to store data in a non-relational format. 
+
+MongoDB stores its data as objects which are commonly identified as documents. These documents are stored in collections, analogous to how tables work in relational databases. MongoDB is known for its scalability, ease of use, reliability & no compulsion for using a fixed schema among all stored documents, giving them the ability to have varying fields (columns).
 
 
 
@@ -36,11 +38,23 @@ Some other concepts one be dealing frquently in Mongo include:-
 
 Aggregation,These are operations that process data records and return computed results. Aggregation operations group values from multiple documents together, and can perform a variety of operations on the grouped data to return a single result.
 
-Replication,Replica set is a group of two or more nodes (generally minimum 3 nodes are required). In a replica set, one node is primary node and remaining nodes are secondary. All data replicates from primary to secondary node. At the time of automatic fail-over or maintenance, election establishes for primary and a new primary node is elected. After the recovery of failed node, it again join the replica set and works as a secondary node.
+Replication,
+![image](https://user-images.githubusercontent.com/36766101/215297847-14551d26-8ca2-4f9d-bbf7-35b9f9d70c90.png)
 
-Sharding,It is the process of storing data records across multiple machines and it is MongoDB’s approach to meeting the demands of data growth. Sharding solves the problem with horizontal scaling. With sharding, you add more machines to support data growth and the demands of read and write operations. 
+Replica set is a group of two or more nodes (generally minimum 3 nodes are required). In a replica set, one node is primary node and remaining nodes are secondary. All data replicates from primary to secondary node. At the time of automatic fail-over or maintenance, election establishes for primary and a new primary node is elected. After the recovery of failed node, it again join the replica set and works as a secondary node.
 
+Sharding,
+![image](https://user-images.githubusercontent.com/36766101/215297944-37cd2c2e-deec-47ab-b136-a1182ed5f059.png)
 
+It is the process of storing data records across multiple machines and it is MongoDB’s approach to meeting the demands of data growth. Sharding solves the problem with horizontal scaling. With sharding, you add more machines to support data growth and the demands of read and write operations. 
+
+Sharding makes use of three components:
+
+Shards: It is the location where the data is stored.
+Config Server: These servers help map data from a cluster to a Shard, which is then used by query routers to perform operations specific to a particular Shard. 
+Query Server: These servers allow users to access and perform operations on the desired MongoDB Shards.
+
+# When sharding and replication work together, they are referred to as a shared cluster. Each shard is replicated to preserve the same data availability
 
 Backup/Restoure use mongodump and mongorestore
 
