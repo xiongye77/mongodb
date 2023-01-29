@@ -48,9 +48,33 @@ Backup/Restoure use mongodump and mongorestore
 mongodump --host sample-cluster.node.us-east-1.docdb.amazonaws.com --port=27017 --username <username> --password <password> --out=<path where you want the backup>
 
 mongorestore --host sample-cluster.node.us-east-1.docdb.amazonaws.com --port=27017 --username <username> --password <insertYourPassword> --drop <Restore path of DB>
+   
+  
+mongodb://mongoadmin:<insertYourPassword>@sample-cluster.node.us-east-1.docdb.amazonaws.com:27017/?replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false
   
   
+  
+Monitor 
+db.serverStatus
+The db.serverStatus() method is used to return a document that provides an overview of the state of the database process.
 
+db.stats()
+  
+db.serverStats()  
+
+db.adminCommand( { getLog: "*" } )
+
+  
+db.adminCommand( { getLog : "global" } )
+
+![image](https://user-images.githubusercontent.com/36766101/215297401-e9dac391-59ec-4cfc-aa2c-852e5f7e8955.png)
+![image](https://user-images.githubusercontent.com/36766101/215297475-8dacd1ea-8af5-4f3b-aeee-aa39340f2676.png)
+
+db.collectionname.stats()  
+db.collectionname.dataSize()
+db.collectionname.storageSize()
+db.collectionname.totalSize()
+db.collectionname.totalIndexSize()  
 
 Create a New Collection and Load Data into It
 
