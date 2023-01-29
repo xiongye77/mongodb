@@ -57,6 +57,7 @@ Replica set is a group of two or more nodes (generally minimum 3 nodes are requi
 
 Sharding,
 ![image](https://user-images.githubusercontent.com/36766101/215297944-37cd2c2e-deec-47ab-b136-a1182ed5f059.png)
+![image](https://user-images.githubusercontent.com/36766101/215318961-81114880-913a-4e1d-9fae-a02656a528e8.png)
 
 It is the process of storing data records across multiple machines and it is MongoDB’s approach to meeting the demands of data growth. Sharding solves the problem with horizontal scaling. With sharding, you add more machines to support data growth and the demands of read and write operations. 
 
