@@ -66,6 +66,11 @@ db.adminCommand( { getLog: "*" } )
 
   
 db.adminCommand( { getLog : "global" } )
+   
+   
+db.adminCommand( { getLog : "startupWarnings" } )
+   
+db.adminCommand({logRotate : 1 } )   
 
 ![image](https://user-images.githubusercontent.com/36766101/215297401-e9dac391-59ec-4cfc-aa2c-852e5f7e8955.png)
 ![image](https://user-images.githubusercontent.com/36766101/215297475-8dacd1ea-8af5-4f3b-aeee-aa39340f2676.png)
