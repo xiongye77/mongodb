@@ -4,7 +4,9 @@ Mongo DB is a high-performance document-oriented database that is powered by a N
 
 MongoDB stores its data as objects which are commonly identified as documents. These documents are stored in collections, analogous to how tables work in relational databases. MongoDB is known for its scalability, ease of use, reliability & no compulsion for using a fixed schema among all stored documents, giving them the ability to have varying fields (columns).
 
+Mongos = MongoDB Shard Utility, the controller and query router for sharded clusters. Sharding partitions the data-set into discrete parts.
 
+Mongod = The primary daemon process for the MongoDB system. It handles data requests, manages data access, and performs background management operations.
 
 The primary purpose of building MongoDB is:-
 
@@ -230,3 +232,38 @@ db.adminCommand({
    "setParameter": 1,
    "wiredTigerEngineRuntimeConfig": "<option>=<setting>,<option>=<setting>"
 })
+
+   
+   
+# Create index
+![image](https://user-images.githubusercontent.com/36766101/215305171-fb92b03e-9a4a-4e81-a9e2-96c60498d567.png)
+   
+![image](https://user-images.githubusercontent.com/36766101/215305193-0261e390-a623-478d-bbdc-4f4f8265017b.png)
+
+# Using mongostat and mongotop to Obtain Real-Time Database Statistics   
+   
+# MongoDB Profiler to use it to query a database by providing details about a result you want through a query, get query level insights by finding slow queries, setting filters to determine slow queries, specifying the threshold for slow queries, etc
+   
+Enabling and Configuring MongoDB Profiler
+Level	Description
+0	This is the default profiler level set off and it does not collect any data. mongod writes operations longer than the slowOpThresholdMs threshold to its log.
+   
+1	This level collects profiling data for slow operations only. Slow operations are regarded as operations that are slower than 100 milliseconds by default though, you can use the slowOpThresholdMs runtime option or the setParameter command to modify your definition of slow operations.
+   
+2	This level of the profiler collects profiling data for all the database operations.
+   
+db.setProfilingLevel(1, { slowms: 20 })
+   
+//To return operations for a particular collection, type the query similar to the one below and it will return operations found in the mydb database’s test collection:   
+db.system.profile.find( { ns : 'mydb.test' } ).pretty()
+   
+   
+// Find something that took more than 20ms
+   
+db.system.profile.find ({"millis": {$ gt: 20}})    
+   
+//Find all queries doing a COLLSCAN because there is no suitable index
+// all queries that do a COLLSCAN
+db.system.profile.find({"planSummary":{$eq:"COLLSCAN"},"op":{$eq:"query"}, "ns":{$eq: "mydb.test" }).sort({millis:-1})
+   
+db.system.profile.find({"planSummary":{$eq:"COLLSCAN"},"op":{$eq:"query"}}).sort({millis:-1})   
