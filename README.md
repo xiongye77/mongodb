@@ -59,6 +59,11 @@ Sharding,
 ![image](https://user-images.githubusercontent.com/36766101/215297944-37cd2c2e-deec-47ab-b136-a1182ed5f059.png)
 ![image](https://user-images.githubusercontent.com/36766101/215318961-81114880-913a-4e1d-9fae-a02656a528e8.png)
 
+![image](https://user-images.githubusercontent.com/36766101/215319097-644af85c-4e69-426e-8777-f4e1d1ea982c.png)
+
+
+![image](https://user-images.githubusercontent.com/36766101/215319137-999c58fe-2687-4ede-805d-b201165c2f1e.png)
+
 It is the process of storing data records across multiple machines and it is MongoDB’s approach to meeting the demands of data growth. Sharding solves the problem with horizontal scaling. With sharding, you add more machines to support data growth and the demands of read and write operations. 
 
 Sharding makes use of three components:
@@ -66,6 +71,8 @@ Sharding makes use of three components:
 Shards: It is the location where the data is stored.
 Config Server: These servers help map data from a cluster to a Shard, which is then used by query routers to perform operations specific to a particular Shard. 
 Query Server: These servers allow users to access and perform operations on the desired MongoDB Shards.
+
+![image](https://user-images.githubusercontent.com/36766101/215319189-b6dcb5e8-26ac-48d3-94f8-d56e66b88c75.png)
 
 # When sharding and replication work together, they are referred to as a shared cluster. Each shard is replicated to preserve the same data availability
 
