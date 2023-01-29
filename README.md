@@ -265,5 +265,9 @@ db.system.profile.find ({"millis": {$ gt: 20}})
 //Find all queries doing a COLLSCAN because there is no suitable index
 // all queries that do a COLLSCAN
 db.system.profile.find({"planSummary":{$eq:"COLLSCAN"},"op":{$eq:"query"}, "ns":{$eq: "mydb.test" }).sort({millis:-1})
+![image](https://user-images.githubusercontent.com/36766101/215307477-b0cc4ae1-693f-4783-a9f1-31e6858f6fde.png)
    
 db.system.profile.find({"planSummary":{$eq:"COLLSCAN"},"op":{$eq:"query"}}).sort({millis:-1})   
+
+   
+# MongoDB FTDC  (Full Time Diagnostic Data Capture) captures server behavior and stores it under a separate directory (data directory/diagnostic.data). This is mainly for MongoDB engineers, to process/analyze mongod and mongos when needed ( troubleshooting). FTDC data files are compressed and not human-readable. MongoDB Inc. engineers cannot access FTDC data without explicit permission and assistance from system owners or operators.
