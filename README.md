@@ -41,6 +41,16 @@ Aggregation,These are operations that process data records and return computed r
 Replication,
 ![image](https://user-images.githubusercontent.com/36766101/215297847-14551d26-8ca2-4f9d-bbf7-35b9f9d70c90.png)
 
+To monitor the overall replication status, use the rs.status()
+
+
+rs.conf() : get the current configuration object
+
+rs.printReplicationInfo() : check oplog size and time range
+
+
+rs.printSecondaryReplicationInfo() : check replica set members and replication lag
+
 Replica set is a group of two or more nodes (generally minimum 3 nodes are required). In a replica set, one node is primary node and remaining nodes are secondary. All data replicates from primary to secondary node. At the time of automatic fail-over or maintenance, election establishes for primary and a new primary node is elected. After the recovery of failed node, it again join the replica set and works as a secondary node.
 
 Sharding,
@@ -211,3 +221,12 @@ db.inventory.aggregate([
 View the inventory information to make sure the checkout information is included in the collection:
 
 db.inventory.find()
+   
+# MongoDB Server Parameters   MongoDB provides a number of configuration options that you can set using
+db.adminCommand( { setParameter: 1, <parameter>: <value>  } )
+   
+   
+db.adminCommand({
+   "setParameter": 1,
+   "wiredTigerEngineRuntimeConfig": "<option>=<setting>,<option>=<setting>"
+})
