@@ -295,3 +295,7 @@ db.system.profile.find({"planSummary":{$eq:"COLLSCAN"},"op":{$eq:"query"}}).sort
 ![image](https://user-images.githubusercontent.com/36766101/215378831-a8fe65b2-5485-4753-b084-b5588224e84c.png)
 ![image](https://user-images.githubusercontent.com/36766101/215378872-a4637671-a284-49dd-9a90-1b689c8d00bc.png)
    
+
+   
+   
+ ![image](https://user-images.githubusercontent.com/36766101/215469406-ab7bb70e-4809-4bd4-9603-c5abe07d670e.png)
