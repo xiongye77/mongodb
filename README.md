@@ -284,9 +284,8 @@ db.system.profile.find({"planSummary":{$eq:"COLLSCAN"},"op":{$eq:"query"}}).sort
 # mongodump 
 ![image](https://user-images.githubusercontent.com/36766101/215375328-8e66af28-2eea-45e1-bd71-e13135d71027.png)
 
-![image](https://user-images.githubusercontent.com/36766101/215375296-6c72b5f3-8220-4941-908c-78dd471df078.png)
-
 
 ![image](https://user-images.githubusercontent.com/36766101/215375524-6da7849e-bad2-4ecf-be16-d17bf299d0d6.png)
 
+![image](https://user-images.githubusercontent.com/36766101/215375296-6c72b5f3-8220-4941-908c-78dd471df078.png)
 
