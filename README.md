@@ -318,3 +318,5 @@ non-relational data  schema on read
 ![image](https://user-images.githubusercontent.com/36766101/226303464-062317b2-6f53-4438-b23d-928207f95e00.png)
 ![image](https://user-images.githubusercontent.com/36766101/226322682-d974f91a-2d59-4b4d-85a2-97ccdc5a816b.png)
 ![image](https://user-images.githubusercontent.com/36766101/226329200-616e6283-9e72-4fbe-a34e-715c6179df6f.png)
+![image](https://user-images.githubusercontent.com/36766101/226490214-a7968a3e-4b24-44ec-9c75-1e1df415373c.png)
+![image](https://user-images.githubusercontent.com/36766101/226490954-04440d48-39f3-450a-aa9c-d4d0f1bc90d6.png)
